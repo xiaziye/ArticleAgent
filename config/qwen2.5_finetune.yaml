@@ -1,0 +1,38 @@
+# config/qwen2.5_finetune.yaml
+model:
+  name_or_path: "/root/qwen-finetune/Qwen/Qwen2___5-1___5B-Instruct"
+  trust_remote_code: true
+  use_bf16: auto  # auto, true, or false
+
+data:
+  train_file: "final_train_data.json"
+  val_file: "final_train_data_small_val_20.json"  
+  max_seq_length: 2048
+  val_split_ratio: 0.1  
+
+training:
+  output_dir: "output/qwen2.5-finetune"
+  num_train_epochs: 3
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 2e-5
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  logging_steps: 20
+  eval_steps: 100
+  save_steps: 500
+  save_total_limit: 3
+  fp16: false
+  bf16: true
+  optim: "adamw_torch"
+  lr_scheduler_type: "cosine"
+  gradient_checkpointing: true
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  dataloader_num_workers: 2
+  remove_unused_columns: false
+
+callbacks:
+  keep_latest_checkpoints: 2

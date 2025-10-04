@@ -40,6 +40,8 @@ Our approach demonstrates that **rare structural combinations of mainstream conc
 ```bash
 pip install -r requirements.txt
 
+---
+
 ### 2. Load the model
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
@@ -52,6 +54,8 @@ model = AutoModelForCausalLM.from_pretrained(
     trust_remote_code=True
 )
 
+---
+
 ### 3. Run inference (Stage 2 example)
 input_text = """<research_methods>... your abstract segment ...</research_methods>"""
 inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
@@ -62,6 +66,9 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 💡 For full pipeline usage, see examples/demo.ipynb.
 
+---
+
+📁 Project Structure
 ArticleAgent/
 ├── data/                          # Data processing scripts
 │   ├── import_openalex.py         # Import OpenAlex CSV to PostgreSQL
@@ -76,6 +83,8 @@ ArticleAgent/
 ├── scripts/                       # Utility scripts
 └── examples/
     └── demo.ipynb                 # End-to-end inference demo
+
+---
 
 📄 Citation
 If you use this work, please cite our paper:

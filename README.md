@@ -40,36 +40,50 @@ Our approach demonstrates that **rare structural combinations of mainstream conc
 ```bash
 pip install -r requirements.txt
 
----
-
+```
 ### 2. Load the model
-```bash
-from transformers import AutoTokenizer, AutoModelForCausalLM
 
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+# Load tokenizer and model from Hugging Face Hub
 model_name = "Hengzongshu/ArticleAgent"
-tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(
+
+tokenizer = AutoTokenizer.from_pretrained(
     model_name,
-    device_map="auto",
-    torch_dtype="bfloat16",
-    trust_remote_code=True
+    trust_remote_code=True,
+    use_fast=False  # Qwen recommends use_fast=False
 )
 
----
-
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
+    device_map="auto",
+    trust_remote_code=True
+)
+```
 ### 3. Run inference (Stage 2 example)
+
+```python
 input_text = """<research_methods>... your abstract segment ...</research_methods>"""
 inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
 
 outputs = model.generate(**inputs, max_new_tokens=256)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
-# Output: [["Physics", "Superconductivity"], ["Materials Science", "High-Tc materials"]]
 
-💡 For full pipeline usage, see examples/demo.ipynb.
+Output: [["Physics", "Superconductivity"], ["Materials Science", "High-Tc materials"]]
+
+```
+
+```
+
+
+## 💡 For full pipeline usage, see examples/demo.ipynb.
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 ArticleAgent/
 ├── data/                          # Data processing scripts
 │   ├── import_openalex.py         # Import OpenAlex CSV to PostgreSQL
@@ -87,7 +101,7 @@ ArticleAgent/
 
 ---
 
-📄 Citation
+## 📄 Citation
 If you use this work, please cite our paper:
 
 @article{xia2025constraint,

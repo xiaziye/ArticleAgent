@@ -76,8 +76,6 @@ Output: [["Physics", "Superconductivity"], ["Materials Science", "High-Tc materi
 
 ```
 
-```
-
 
 ## 💡 For full pipeline usage, see examples/demo.ipynb.
 

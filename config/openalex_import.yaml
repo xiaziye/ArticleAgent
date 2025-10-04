@@ -1,0 +1,13 @@
+# data/config/openalex_import.yaml
+database:
+  host: localhost
+  port: 5432
+  dbname: academic_kg
+  user: your_user
+  password: your_password
+
+import:
+  csv_file: "data/raw/works.csv"
+  type: "incremental"  # full 或 incremental
+  min_abstract_length: 50
+  batch_size: 500

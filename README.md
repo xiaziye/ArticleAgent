@@ -82,6 +82,7 @@ Output: [["Physics", "Superconductivity"], ["Materials Science", "High-Tc materi
 ---
 
 ## 📁 Project Structure
+```bash
 ArticleAgent/
 ├── data/                          # Data processing scripts
 │   ├── import_openalex.py         # Import OpenAlex CSV to PostgreSQL
@@ -96,15 +97,17 @@ ArticleAgent/
 ├── scripts/                       # Utility scripts
 └── examples/
     └── demo.ipynb                 # End-to-end inference demo
-
+```
 ---
 
 ## 📄 Citation
 If you use this work, please cite our paper:
-
+```bash
 @article{xia2025constraint,
   title={Constraint-Driven Small Language Models Based on Agent and OpenAlex Knowledge Graph: Mining Conceptual Pathways and Discovering Innovation Points in Academic Papers},
   author={Xia, Ziye and Ospichev, Sergei S.},
   journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2025}
 }
+
+```

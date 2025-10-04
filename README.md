@@ -43,6 +43,7 @@ pip install -r requirements.txt
 ---
 
 ### 2. Load the model
+```bash
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 model_name = "Hengzongshu/ArticleAgent"

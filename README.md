@@ -1,6 +1,6 @@
 # ArticleAgent: Constraint-Driven Small Language Models for Academic Concept Path Mining
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](MIT)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Hengzongshu/ArticleAgent)
 [![Hugging Face Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-blue)](https://huggingface.co/datasets/Hengzongshu/NSU-Academic-Concept-Paths)
 

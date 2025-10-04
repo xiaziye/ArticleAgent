@@ -1,0 +1,16 @@
+# Core deep learning & NLP
+torch>=2.0.0
+transformers>=4.35.0
+accelerate>=0.25.0
+sentencepiece>=0.1.99  # Required by Qwen tokenizers
+
+# Data handling & utilities
+datasets>=2.14.0
+tqdm>=4.66.0
+PyYAML>=6.0
+
+# Type hints (for compatibility with older Python)
+typing-extensions>=4.8.0
+
+# Optional but recommended for production
+psycopg2-binary>=2.9.0  # If you use PostgreSQL for data import/export

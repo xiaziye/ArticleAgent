@@ -39,3 +39,50 @@ Our approach demonstrates that **rare structural combinations of mainstream conc
 ### 1. Install dependencies
 ```bash
 pip install -r requirements.txt
+
+### 2. Load the model
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+model_name = "Hengzongshu/ArticleAgent"
+tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    device_map="auto",
+    torch_dtype="bfloat16",
+    trust_remote_code=True
+)
+
+### 3. Run inference (Stage 2 example)
+input_text = """<research_methods>... your abstract segment ...</research_methods>"""
+inputs = tokenizer(input_text, return_tensors="pt").to(model.device)
+
+outputs = model.generate(**inputs, max_new_tokens=256)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+# Output: [["Physics", "Superconductivity"], ["Materials Science", "High-Tc materials"]]
+
+💡 For full pipeline usage, see examples/demo.ipynb.
+
+ArticleAgent/
+├── data/                          # Data processing scripts
+│   ├── import_openalex.py         # Import OpenAlex CSV to PostgreSQL
+│   └── export_papers_to_json.py   # Export cleaned papers to JSON
+├── config/                        # Training configurations
+│   └── qwen2.5_finetune.yaml
+├── pipeline/ 
+│   ├── slm_invoker.py             # Core SLM invocation logic
+│   └── process1-4.py                # Four-stage agent modules
+├── train.py                       # Training script
+├── requirements.txt               # Dependencies
+├── scripts/                       # Utility scripts
+└── examples/
+    └── demo.ipynb                 # End-to-end inference demo
+
+📄 Citation
+If you use this work, please cite our paper:
+
+@article{xia2025constraint,
+  title={Constraint-Driven Small Language Models Based on Agent and OpenAlex Knowledge Graph: Mining Conceptual Pathways and Discovering Innovation Points in Academic Papers},
+  author={Xia, Ziye and Ospichev, Sergei S.},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  year={2025}
+}

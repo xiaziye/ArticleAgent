@@ -106,7 +106,7 @@ If you use this work, please cite our paper:
 @article{xia2025constraint,
   title={Constraint-Driven Small Language Models Based on Agent and OpenAlex Knowledge Graph: Mining Conceptual Pathways and Discovering Innovation Points in Academic Papers},
   author={Xia, Ziye and Ospichev, Sergei S.},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  journal={arXiv preprint arXiv:[2510.14303](http://arxiv.org/abs/2510.14303)},
   year={2025}
 }
 

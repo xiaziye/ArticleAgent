@@ -27,7 +27,7 @@ Our approach demonstrates that **rare structural combinations of mainstream conc
 
 | Resource | Link |
 |--------|------|
-| **Paper** | [arXiv:XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX) *(replace with your arXiv ID)* |
+| **Paper** | [arXiv:2510.14303](https://arxiv.org/abs/2510.14303) |
 | **Fine-tuned Model** | [Hengzongshu/ArticleAgent](https://huggingface.co/Hengzongshu/ArticleAgent) |
 | **Training Dataset** | [Hengzongshu/NSU-Academic-Concept-Paths](https://huggingface.co/datasets/Hengzongshu/NSU-Academic-Concept-Paths) |
 | **Code** | This repository |
